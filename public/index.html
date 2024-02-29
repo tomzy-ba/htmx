@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>htmx</title>
     <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>hello</h1>
-    <button hx-get="/users" hx-swap="outerHTML">fetch</button>
+    <button 
+    hx-get="/users"
+    hx-target="#users"
+    hx-indicator="#loading"
+    hx-vals='{"limit": 5}'
+    hx-swap="outerHTML">
+    fetch</button>
+
+    <span class="htmx-indicator" id="loading"><img src="img/load.gif"></span>
     
+    <div id="users"></div>
 </body>
 </html>
